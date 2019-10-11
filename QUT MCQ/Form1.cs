@@ -34,8 +34,8 @@ namespace QUT_MCQ
         {
             int totalMarks = 0;
             int accumulatedMarks = 0;
-            string pdfTemplate = "C:\\Users\\Zhi On\\Desktop\\WTW\\QUT_MCQ_CS.pdf";
-            string newFile = "C:\\Users\\Zhi On\\Desktop\\WTW\\QUT_MCQ_CS_NEW.pdf";
+            string pdfTemplate = "C:\\Users\\Zhi On\\Desktop\\WTW\\701\\QUT_MCQ_A4.pdf";
+            string newFile = "C:\\Users\\Zhi On\\Desktop\\WTW\\701\\QUT_MCQ_A4_NEW.pdf";
             PdfReader pdfReader = new PdfReader(pdfTemplate);
             PdfStamper pdfStamper = new PdfStamper(pdfReader, new FileStream(newFile, FileMode.Create));
             fields = pdfStamper.AcroFields;
@@ -86,14 +86,14 @@ namespace QUT_MCQ
             pdfStamper.FormFlattening = true;
             pdfStamper.Close();
 
-            log.Text = log.Text + DateTime.Now + " -- Generating Completed for " + fields.GetField("Subject Code") + Environment.NewLine;
+            log.Text = log.Text + DateTime.Now + " -- Generating Completed for " + fields.GetField("SubjectCode") + Environment.NewLine;
 
             if(totalMarks != accumulatedMarks)
             {
                 log.Text = log.Text + DateTime.Now + "WARNING -- ACCUMULATED MARKS DOES NOT EQUAL TO THE TOTAL MARKS SET! PLEASE CHECK AGAIN!";
             } else
             {
-                log.Text = log.Text + DateTime.Now + "ACCUMULATED MARKS MATCHED THE TOTAL MARKS SET";
+                log.Text = log.Text + DateTime.Now + " -- ACCUMULATED MARKS MATCHED THE TOTAL MARKS SET";
             }
         }
 
@@ -129,7 +129,7 @@ namespace QUT_MCQ
             char[] subjectCode = value.ToCharArray();
 
             log.Text = log.Text + DateTime.Now + " -- Generating Subject Code" + Environment.NewLine;
-            fields.SetField("Subject Code", value);
+            fields.SetField("SubjectCode", value);
             for (int i = 0; i < subjectCode.Length; i++)
             {
                 fields.SetField("SubjectCode" + (i + 1), subjectCode[i].ToString());
@@ -142,7 +142,7 @@ namespace QUT_MCQ
             char[] studentNumber = value.ToCharArray();
 
             log.Text = log.Text + DateTime.Now + " -- Generating Student Number" + Environment.NewLine;
-            fields.SetField("Student Number", value);
+            fields.SetField("StudentNumber", value);
             for (int i = 0; i < studentNumber.Length; i++)
             {
                 fields.SetField("StudentNumber" + (i + 1), studentNumber[i].ToString());
@@ -167,7 +167,7 @@ namespace QUT_MCQ
         {
             log.Text = log.Text + DateTime.Now + "-- Generating Question Answer for Q" + value[0] + Environment.NewLine;
             //fields.SetField("Q" + value[0], value[1].ToUpper());
-            fields.SetField("Q" + value[0] + value[1].ToUpper(), "Yes");
+            fields.SetField("Q" + value[0] + value[1].ToUpper(), "Yes", true);
             log.Text = log.Text + DateTime.Now + "-- Generating Question Answer Completed for Q" + value[0] + Environment.NewLine;
         }
 
