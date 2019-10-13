@@ -75,7 +75,7 @@ namespace QUT_MCQ
                                 accumulatedMarks += Int32.Parse(splittedline[2]);
                             } else
                             {
-                                log.Text = log.Text + DateTime.Now + "-- INVALID INPUT -- " + line + Environment.NewLine;
+                                log.Text = log.Text + DateTime.Now + " -- INVALID INPUT -- " + line + Environment.NewLine;
                             }
                             break;
                     }
