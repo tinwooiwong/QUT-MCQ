@@ -165,10 +165,10 @@ namespace QUT_MCQ
 
         private void fillQuestionAnswer(string[] value)
         {
-            log.Text = log.Text + DateTime.Now + "-- Generating Question Answer for Q" + value[0] + Environment.NewLine;
+            log.Text = log.Text + DateTime.Now + " -- Generating Question Answer for Q" + value[0] + Environment.NewLine;
             //fields.SetField("Q" + value[0], value[1].ToUpper());
             fields.SetField("Q" + value[0] + value[1].ToUpper(), "Yes", true);
-            log.Text = log.Text + DateTime.Now + "-- Generating Question Answer Completed for Q" + value[0] + Environment.NewLine;
+            log.Text = log.Text + DateTime.Now + " -- Generating Question Answer Completed for Q" + value[0] + Environment.NewLine;
         }
 
         private void startBtn_Click(object sender, EventArgs e)
