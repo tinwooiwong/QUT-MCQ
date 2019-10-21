@@ -12,6 +12,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.text.xml;
 using System.IO;
+using System.Reflection;
 
 namespace QUT_MCQ
 {
@@ -34,8 +35,8 @@ namespace QUT_MCQ
         {
             int totalMarks = 0;
             int accumulatedMarks = 0;
-            string pdfTemplate = "C:\\Users\\Zhi On\\Desktop\\WTW\\701\\QUT_MCQ_A4.pdf";
-            string newFile = "C:\\Users\\Zhi On\\Desktop\\WTW\\701\\QUT_MCQ_A4_NEW.pdf";
+            string pdfTemplate = "QUT_MCQ_A4.pdf";
+            string newFile = "QUT_MCQ_A4_NEW.pdf";
             PdfReader pdfReader = new PdfReader(pdfTemplate);
             PdfStamper pdfStamper = new PdfStamper(pdfReader, new FileStream(newFile, FileMode.Create));
             fields = pdfStamper.AcroFields;
